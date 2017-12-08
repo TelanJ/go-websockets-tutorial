@@ -3,6 +3,8 @@ package main
 import (
 	"flag"
 	"fmt"
+	"log"
+	"net/http"
 )
 
 func main() {
@@ -19,5 +21,6 @@ func main() {
 		return
 	}
 
-	fmt.Println("Hello.")
+	router := NewRouter()
+	log.Fatal(http.ListenAndServe(":8080", router))
 }
